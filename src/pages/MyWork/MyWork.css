@@ -1,0 +1,59 @@
+.my-work-dashboard .dashboard-header {
+  margin-bottom: var(--spacing-xl);
+}
+.my-work-dashboard .dashboard-header h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: var(--spacing-sm);
+}
+.my-work-dashboard .dashboard-header p {
+  font-size: 1rem;
+  color: var(--color-text-light);
+}
+
+.my-work-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--spacing-lg);
+}
+
+.work-column {
+  background-color: var(--color-bg);
+  border-radius: 8px;
+  height: calc(100vh - 200px);
+  display: flex;
+  flex-direction: column;
+}
+
+.work-column-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  padding: var(--spacing-md);
+  border-bottom: 1px solid var(--color-border);
+  margin: 0;
+}
+
+.work-column-tasks {
+  padding: var(--spacing-md);
+  overflow-y: auto;
+  flex-grow: 1;
+}
+
+.empty-tasks {
+  color: var(--color-text-light);
+  font-style: italic;
+  padding: var(--spacing-md);
+  text-align: center;
+}
+
+/* Responsive */
+@media (max-width: var(--bp-xl)) {
+  .my-work-grid {
+    grid-template-columns: 1fr;
+  }
+  .work-column {
+    height: auto;
+    max-height: 400px;
+  }
+}

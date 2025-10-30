@@ -1,0 +1,22 @@
+.layout-container {
+  display: flex;
+  flex-direction: column; /* Changed */
+  min-height: 100vh;
+  background-color: var(--color-bg);
+}
+
+.main-content {
+  flex-grow: 1;
+  padding: var(--spacing-lg);
+  width: 100%;
+  max-width: 1440px; /* Max content width for large screens */
+  margin: 0 auto; /* Center the content */
+}
+
+/* Responsive layout adjustments */
+@media (max-width: var(--bp-lg)) {
+  .main-content {
+    padding: var(--spacing-md);
+    padding-top: 80px; /* Space for fixed-top header on mobile */
+  }
+}

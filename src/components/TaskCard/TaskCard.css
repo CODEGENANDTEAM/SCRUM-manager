@@ -1,0 +1,93 @@
+.task-card {
+  background-color: var(--color-bg-light);
+  border: 1px solid var(--color-border);
+  border-left: 4px solid var(--color-secondary); /* Default border */
+  border-radius: 8px;
+  padding: var(--spacing-md);
+  margin-bottom: var(--spacing-sm);
+  box-shadow: var(--shadow-sm);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.task-card:hover {
+  box-shadow: var(--shadow-md);
+  border-color: #d1d5db;
+  transform: translateY(-2px);
+}
+
+/* --- Type-specific Colors --- */
+.task-card.type-story {
+  border-left-color: var(--color-success);
+}
+.task-card.type-task {
+  border-left-color: var(--color-primary);
+}
+.task-card.type-bug {
+  border-left-color: var(--color-danger);
+}
+
+.task-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing-sm);
+}
+
+.task-icon {
+  font-size: 1rem;
+}
+.task-icon.bug { color: var(--color-danger); }
+.task-icon.task { color: var(--color-primary); }
+.task-icon.story { color: var(--color-success); }
+
+.task-card-id {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--color-text-light);
+  text-transform: uppercase;
+}
+
+.task-card-title {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--color-text);
+  margin: 0 0 var(--spacing-lg) 0;
+  line-height: 1.4;
+}
+
+.task-card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.task-card-meta {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.task-card-points {
+  background-color: var(--color-bg);
+  color: var(--color-text-light);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.task-card-assignee {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background-color: var(--color-primary);
+  color: #fff;
+  font-size: 0.8rem;
+  font-weight: 600;
+  border: 2px solid #fff;
+  box-shadow: var(--shadow-sm);
+}

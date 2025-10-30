@@ -1,0 +1,373 @@
+.sprint-board-page {
+  /* Allow horizontal scrolling on small screens */
+  overflow-x: auto;
+}
+
+.kanban-board {
+  display: flex;
+  gap: var(--spacing-md);
+  min-width: 1200px; /* Force horizontal scroll if needed */
+  padding-bottom: var(--spacing-md); /* Space for scrollbar */
+}
+
+.kanban-column {
+  flex: 1;
+  min-width: 280px;
+  max-width: 320px;
+  background-color: var(--color-bg);
+  border-radius: 8px;
+  padding: var(--spacing-sm);
+  border: 1px solid var(--color-border);
+}
+
+.kanban-column-title {
+  padding: var(--spacing-sm) var(--spacing-md);
+  margin-bottom: var(--spacing-md);
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.kanban-column-tasks {
+  min-height: 200px;
+  padding: 0 var(--spacing-xs);
+}
+
+/* Responsive adjustments for the board */
+@media (max-width: var(--bp-lg)) {
+  /* On tablets and smaller, the .sprint-board-page overflow-x takes over */
+  .kanban-board {
+    padding-top: var(--spacing-md);
+  }
+}
+
+
+/* --- New SprintBoard Styles --- */
+
+.sprint-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing-md);
+}
+
+.sprint-header h1 {
+  margin: 0;
+}
+
+.sprint-details-container {
+  background-color: var(--color-bg-light);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  padding: var(--spacing-lg);
+  margin-bottom: var(--spacing-lg);
+  display: flex;
+  justify-content: space-between;
+}
+
+.sprint-goal {
+  flex: 2;
+}
+
+.sprint-goal strong {
+  font-size: 0.9rem;
+  color: var(--color-text-light);
+  text-transform: uppercase;
+}
+
+.sprint-goal p {
+  font-size: 1rem;
+  color: var(--color-text);
+  margin: var(--spacing-xs) 0 0 0;
+}
+
+.sprint-meta {
+  flex: 1;
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.sprint-meta-item {
+  font-size: 0.9rem;
+  color: var(--color-text);
+}
+
+.sprint-meta-item strong {
+  color: var(--color-text-light);
+}
+
+.status-badge {
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: 99px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.status-badge.status-Upcoming {
+  background-color: #f3f4f6;
+  color: var(--color-text-light);
+}
+.status-badge.status-Active {
+  background-color: var(--color-badge);
+  color: var(--color-badge-text);
+}
+.status-badge.status-Completed {
+  background-color: #f0fdf4;
+  color: #166534;
+}
+
+/* Responsive adjustments */
+@media (max-width: var(--bp-lg)) {
+  .sprint-details-container {
+    flex-direction: column;
+    gap: var(--spacing-md);
+  }
+  .sprint-meta {
+    text-align: left;
+  }
+}
+
+
+/* --- Drag-and-Drop Styles --- */
+.kanban-column {
+  min-height: 300px;
+  /* Add other column styles from previous step if missing */
+}
+
+.kanban-column-tasks {
+  min-height: 150px; /* Gives a droppable area even when empty */
+  padding: var(--spacing-sm);
+}
+
+.task-card-wrapper {
+  /* This wrapper is used by the Draggable */
+}
+
+.kanban-column.dragging-over {
+  background-color: #f4f4f5; /* Light grey when dragging over */
+}
+
+
+/* --- Task Modal Styles --- */
+.modal-title {
+  margin-top: 0;
+  margin-bottom: var(--spacing-lg);
+}
+
+.form-group {
+  margin-bottom: var(--spacing-md);
+}
+.form-group label {
+  display: block;
+  font-weight: 500;
+  margin-bottom: var(--spacing-sm);
+  font-size: 0.9rem;
+}
+.form-group input,
+.form-group textarea,
+.form-group select {
+  width: 100%;
+  padding: var(--spacing-md);
+  font-size: 1rem;
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  background-color: #fff;
+  font-family: var(--font-family-base);
+}
+.form-group textarea {
+  resize: vertical;
+}
+
+.form-grid-3 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: var(--spacing-md);
+}
+
+.modal-actions-split {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: var(--spacing-xl);
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--spacing-md);
+}
+
+.btn-danger-outline {
+  background: none;
+  border: 1px solid var(--color-danger);
+  color: var(--color-danger);
+  padding: var(--spacing-sm) var(--spacing-md);
+  font-size: 0.9rem;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.btn-danger-outline:hover {
+  background-color: #fef2f2;
+}
+
+
+/* Responsive Modal */
+@media (max-width: var(--bp-lg)) {
+  .form-grid-3 {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* --- New styles for SprintBoard.css --- */
+
+/* Drag-and-Drop Polish */
+.kanban-column {
+  background-color: var(--color-bg);
+  border-radius: 8px;
+}
+.kanban-column-tasks {
+  min-height: 150px;
+  padding: var(--spacing-sm);
+  transition: background-color 0.2s ease;
+}
+.kanban-column.dragging-over .kanban-column-tasks {
+  background-color: #eef2ff; /* Light indigo */
+}
+.task-card-wrapper {
+  /* This space is for the element as it's being dragged */
+}
+
+/* Task Modal Overhaul */
+.modal-content.large {
+  max-width: 800px; /* Make the modal wider */
+}
+.modal-header {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-sm);
+}
+.modal-title {
+  margin: 0;
+}
+.modal-task-id {
+  font-size: 0.9rem;
+  color: var(--color-text-light);
+  background-color: var(--color-bg);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: 4px;
+}
+
+/* Modal Tabs */
+.modal-tabs {
+  display: flex;
+  gap: var(--spacing-sm);
+  border-bottom: 1px solid var(--color-border);
+  margin-bottom: var(--spacing-lg);
+}
+.modal-tab {
+  background: none;
+  border: none;
+  padding: var(--spacing-md);
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--color-text-light);
+  cursor: pointer;
+  border-bottom: 3px solid transparent;
+}
+.modal-tab.active {
+  color: var(--color-primary);
+  border-bottom-color: var(--color-primary);
+}
+.modal-body {
+  padding: 0 var(--spacing-xs); /* Small padding to align with tabs */
+}
+
+/* Comment Section */
+.comment-section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+.comment-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 0;
+}
+.comment-feed {
+  max-height: 300px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+  padding: var(--spacing-sm);
+  background-color: var(--color-bg);
+  border-radius: 8px;
+}
+.comment {
+  background-color: var(--color-bg-light);
+  border: 1px solid var(--color-border);
+  padding: var(--spacing-md);
+  border-radius: 6px;
+}
+.comment-author {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--color-text);
+  margin-bottom: var(--spacing-xs);
+}
+.comment-content {
+  font-size: 0.95rem;
+  margin-bottom: var(--spacing-sm);
+}
+.comment-date {
+  font-size: 0.8rem;
+  color: var(--color-text-light);
+}
+.comment-form {
+  display: flex;
+  gap: var(--spacing-sm);
+}
+.comment-form input {
+  flex-grow: 1;
+  padding: var(--spacing-md);
+  font-size: 1rem;
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+}
+.comment-form .btn {
+  white-space: nowrap;
+}
+
+/* --- New Comment Delete Button Styles --- */
+.comment-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing-xs);
+}
+
+.comment-author {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.btn-delete-comment {
+  background: none;
+  border: none;
+  color: var(--color-danger);
+  font-size: 0.8rem;
+  font-weight: 500;
+  cursor: pointer;
+  padding: var(--spacing-xs);
+  border-radius: 4px;
+}
+
+.btn-delete-comment:hover {
+  background-color: #fee2e2;
+}

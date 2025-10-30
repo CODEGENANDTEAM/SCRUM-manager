@@ -1,0 +1,3 @@
+/* Import global styles and variables */
+@import './styles/variables.css'; /* <-- Updated Path */
+@import './styles/global.css';  /* <-- Updated Path */
